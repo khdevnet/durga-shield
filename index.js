@@ -2,25 +2,29 @@ const os = require('os')
 const executeCommand = require('child_process').execSync;
 const readFile = require('fs').readFileSync;
 
+const logger = require('./services/logger');
+const commitMessageValidator = require('./validators/commit-message-validator');
+const branchnameValidator = require('./validators/branchname-validator');
+
 validateGitArtifacts(process.argv.slice(2));
 
 function validateGitArtifacts(args) {
     const options = parseOptions(args);
 
     const targets = {
-        branch: validateBranch,
-        commitmsg: validateCommitmsg
+        branch: branchnameValidator,
+        commitmsg: commitMessageValidator
     };
 
     validate(targets, options);
 
     function parseOptions(args) {
         if (args.length < 2) {
-            throw error(`You pass less arguments then expected.${getHelpMessage()}`);
+            logErrorAndExit(`You pass less arguments then expected.${getHelpMessage()}`);
         }
 
         if (args.length > 2) {
-            throw error(`You pass more arguments then expected. ${getHelpMessage()}`);
+            logErrorAndExit(`You pass more arguments then expected. ${getHelpMessage()}`);
         }
 
         return {
@@ -39,39 +43,14 @@ function validateGitArtifacts(args) {
     function validate(targets, options) {
         const targetsKeys = Object.keys(targets);
         if (!targetsKeys.includes(options.target)) {
-            error(`Target argument: '${options.target}' is not support. Please use following: ${targetsKeys}.`);
+            logErrorAndExit(`Target argument: '${options.target}' is not support. Please use following: ${targetsKeys}.`);
         }
 
         targets[options.target](options.pattern);
     }
 
-    function validateCommitmsg(pattern) {
-        const commitMessage = readFile(process.env.GIT_PARAMS, "utf8");
-        if (!commitMessage.match(pattern)) {
-            error(`Commit message '${commitMessage}' is not allowed by pattern '${pattern}'.`);
-        }
-    }
-
-    function validateBranch(pattern) {
-        const branchName = getCurrentBranchName();
-
-        if (!branchName.match(pattern)) {
-            error(`Branch name '${branchName}' is not allowed by pattern '${pattern}'.`);
-        }
-
-        function getCurrentBranchName() {
-            const branchName = executeCommand('git rev-parse --abbrev-ref HEAD');
-
-            if (!branchName) {
-                error('Unable to determine branch name using git command.');
-            }
-
-            return branchName.toString();
-        }
-    }
-
-    function error(message) {
-        console.log(message);
+    function logErrorAndExit(message) {
+        logger.error(message);
         process.exit(1);
     }
 }

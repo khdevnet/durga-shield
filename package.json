@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "lint": "jscs src"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/khdevnet/durga-shield/issues"
   },
-  "homepage": "https://github.com/khdevnet/durga-shield#readme"
+  "homepage": "https://github.com/khdevnet/durga-shield#readme",
+  "devDependencies": {
+    "jscs": "^3.0.7"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
 }

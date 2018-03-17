@@ -12,11 +12,23 @@ function validateGitArtifacts(args) {
     const options = parseOptions(args);
 
     const targets = {
-        branch: branchnameValidator,
-        commitmsg: commitMessageValidator
+        branch: 'branch',
+        commitmsg: 'commitmsg'
     };
 
-    validate(targets, options);
+    switch (options.target) {
+        case targets.branch:
+            branchnameValidator(options.pattern);
+            break;
+        case targets.commitmsg:
+            commitMessageValidator(
+                readFile(process.env.GIT_PARAMS, 'utf8'),
+                options.pattern);
+            break;
+        default:
+            logErrorAndExit(`Target argument: '${options.target}' is not support. Please use following: ${targetsKeys}.`);
+            break;
+    }
 
     function parseOptions(args) {
         if (args.length < 2) {
@@ -38,15 +50,6 @@ function validateGitArtifacts(args) {
                 + `$ node ${currentFilename} [validation target (branch,commitmsg)] [Regex pattern] ${os.EOL}`
                 + `$ node ${currentFilename} commitmsg \'issue-\'`;
         }
-    }
-
-    function validate(targets, options) {
-        const targetsKeys = Object.keys(targets);
-        if (!targetsKeys.includes(options.target)) {
-            logErrorAndExit(`Target argument: '${options.target}' is not support. Please use following: ${targetsKeys}.`);
-        }
-
-        targets[options.target](options.pattern);
     }
 
     function logErrorAndExit(message) {

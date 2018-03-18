@@ -1,21 +1,18 @@
+const os = require('os');
 const executeCommand = require('child_process').execSync;
-const logger = require('../services/logger');
 
 module.exports = function(pattern) {
     const branchName = getCurrentBranchName();
 
     if (!branchName.match(pattern)) {
-      logger.error(`Branch name is not allowed by pattern '${pattern}'.`);
-      logger.error(`Branch name: ${branchName}`);
-      process.exit(1);
+      throw new Error(`${os.EOL} Branch name is not allowed by pattern ${pattern}.${os.EOL} Branch name: ${branchName}`);
     }
 
     function getCurrentBranchName() {
       const branchName = executeCommand('git rev-parse --abbrev-ref HEAD');
 
       if (!branchName) {
-        logger.error('Unable to determine branch name using git command.');
-        process.exit(1);
+        throw new Error('Unable to determine branch name using git command.');
       }
 
       return branchName.toString();

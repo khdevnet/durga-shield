@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "lint": "jscs src"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/khdevnet/durga-shield.git"
@@ -16,10 +13,16 @@
     "url": "https://github.com/khdevnet/durga-shield/issues"
   },
   "homepage": "https://github.com/khdevnet/durga-shield#readme",
-  "devDependencies": {
-    "jscs": "^3.0.7"
+  "husky": {
+    "hooks": {
+      "commitmsg": "node ./cli/commitmsg.js -g ${GIT_PARAMS} -p '^issue-\\d+'",
+      "pre-push": "node ./cli/branchname.js -p '^develop|^dev|^development|^(feature|bugfix)\/issue-\\d+'"
+    }
   },
   "dependencies": {
     "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "husky": "^0.15.0-rc.10"
   }
 }

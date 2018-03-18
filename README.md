@@ -49,8 +49,8 @@ Update packages.json
 ...
   "husky": {
     "hooks": {
-      "commit-msg": "node ./node_modules/shivas/cli/commitmsg.js",
-      "pre-push": "node ./node_modules/shivas/cli/branchname.js"
+      "commit-msg": "node ./node_modules/shivas/commitmsg.js",
+      "pre-push": "node ./node_modules/shivas/branchname.js"
     }
   }
 }
@@ -63,29 +63,32 @@ Update packages.json
 
 ### Options
 
-Define options in your `package.json` file (values displayed below are the default values):
+Define options in husky hook `package.json` file (values display below are the default values):
 
-```javascript
+```
 {
-  "shivas": {
-        branchname: "^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+",
-        commitmsg: "^[A-Za-z]+-\\d+"
+...
+  "husky": {
+    "hooks": {
+      "commit-msg": "node ./node_modules/shivas/commitmsg.js '^[A-Za-z]+-\\d+'",
+      "pre-push": "node ./node_modules/shivas/branchname.js '^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+'"
     }
+  }
 }
 ```
 
-Define options in `.shivasrc` file (values displayed below are the default values):
+Skip validation commit messages and branches:
 
-```yml
-branchname: "^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+" 
-commitmsg: "^[A-Za-z]+-\\d+"
 ```
-
-Skip validation commit messages and branches in `.shivasrc` file:
-
-```yml
-branchname: "" 
-commitmsg: ""
+{
+...
+  "husky": {
+    "hooks": {
+      "commit-msg": "node ./node_modules/shivas/commitmsg.js skip",
+      "pre-push": "node ./node_modules/shivas/branchname.js skip"
+    }
+  }
+}
 ```
 
 #### prefixes

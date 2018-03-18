@@ -1,13 +1,19 @@
 const os = require('os')
 const readFile = require('fs').readFileSync;
 
-const getConf = require('./config-loader');
+const parsePattern = require('./parse-pattern');
 
-module.exports = function () {
-    const pattern = getConf(process.cwd()).commitmsg;
+validateCommitMessage(process.argv.slice(2));
+
+function validateCommitMessage(args) {
+    const pattern = parsePattern(
+        args,
+        '[^[A-Za-z]+-\\d+]'
+    );
+
     const gitCommitMessageFilePath = process.env.GIT_PARAMS;
     if (!gitCommitMessageFilePath) {
-        throw new Error('Please specify commit message file path: -g /.git/COMMIT_EDITMSG');
+        throw new Error('Please specify commit message file path: .git/COMMIT_EDITMSG');
     }
 
     const commitMessage = readFile(gitCommitMessageFilePath, 'utf8')

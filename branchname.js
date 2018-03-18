@@ -1,11 +1,15 @@
 const os = require('os');
 const executeCommand = require('child_process').execSync;
 
-const getConf = require('./config-loader');
+const parsePattern = require('./parse-pattern');
 
+validateBranchname(process.argv.slice(2));
 
-module.exports = function () {
-  const pattern = getConf(process.cwd()).branchname;
+function validateBranchname(args) {
+  const pattern = parsePattern(
+    args,
+    '^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+'
+  );
   const branchName = getCurrentBranchName();
 
   if (!branchName.match(pattern)) {
@@ -22,3 +26,5 @@ module.exports = function () {
     return branchName.toString();
   }
 };
+
+

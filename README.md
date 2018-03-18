@@ -1,5 +1,5 @@
 # Shiva shield
-> git-flow standarts validator
+> git-flow standards validator
 
 ![](shiva.gif)
 

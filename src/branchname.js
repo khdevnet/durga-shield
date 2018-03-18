@@ -3,7 +3,7 @@ const os = require('os');
 const executeCommand = require('child_process').execSync;
 
 const parsePattern = require('./parse-pattern');
-console.log("valid");
+
 validateBranchname(process.argv.slice(2));
 
 function validateBranchname(args) {
@@ -27,5 +27,3 @@ function validateBranchname(args) {
     return branchName.toString();
   }
 };
-
-

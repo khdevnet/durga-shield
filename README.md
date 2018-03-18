@@ -1,7 +1,7 @@
 # Shiva shield
 > git-flow standarts validator
 
-![](shiva.gif)
+![](shiva.gif|width=100)
 
 Provides a binary that can be used as a `git-hook` to validate branch names and commit messages according to `git-flow` prior to pushing upstream. 
 
@@ -29,8 +29,10 @@ Error:
 
 ## Features
 
-- Validate branch name according to default `git-flow` format [^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+].
-- Validate commit message according to default `git-flow` format [^[A-Za-z]+-\\d+].
+- Validate branch name according to default `git-flow` format.
+  pattern: [^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+].
+- Validate commit message according to default `git-flow` format.
+  pattern: [^[A-Za-z]+-\\d+].
 - Prevent pushes to certain branches such as `master` or `staging`.
 - Completely customizable, for Regex validation.
 

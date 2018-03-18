@@ -26,21 +26,10 @@ Error:
  Message: Add readme
 ```
 
-
-## Features
-
-- Validate branch name according to default `git-flow` format. <br>
-  pattern: [^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+].
-- Validate commit message according to default `git-flow` format. <br>
-  pattern: [^[A-Za-z]+-\\d+].
-- Prevent pushes to certain branches such as `master` or `staging`.
-- Completely customizable, for Regex validation.
-
 ## Installation
 
 ```sh
-$ npm install shivas --save-dev
-$ npm install husky@next --save-dev
+$ npm install shivas husky@next --save-dev
 ```
 
 Update packages.json
@@ -58,6 +47,14 @@ Update packages.json
 
 - Use [husky](http://npm.im/husky) to setup `pre-push` and `commit-msg` git hooks.
 
+## Features
+
+- Validate branch name according to default `git-flow` format. <br>
+  pattern: [^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+].
+- Validate commit message according to default `git-flow` format. <br>
+  pattern: [^[A-Za-z]+-\\d+].
+- Prevent pushes to certain branches such as `master` or `staging`.
+- Completely customizable, for Regex validation.
 
 ## Usage
 

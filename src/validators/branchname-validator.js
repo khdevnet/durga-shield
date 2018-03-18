@@ -5,7 +5,8 @@ module.exports = function(pattern) {
     const branchName = getCurrentBranchName();
 
     if (!branchName.match(pattern)) {
-      logger.error(`Branch name '${branchName}' is not allowed by pattern '${pattern}'.`);
+      logger.error(`Branch name is not allowed by pattern '${pattern}'.`);
+      logger.error(`Branch name: ${branchName}`);
       process.exit(1);
     }
 

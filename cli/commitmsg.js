@@ -1,7 +1,11 @@
-const argv = require('minimist')(process.argv.slice(2));
+const minimist = require('minimist');
 const readFile = require('fs').readFileSync;
 
 const commitMessageValidator = require('../src/validators/commit-message-validator');
 
-const commitMessage = readFile(argv.g, 'utf8')
-commitMessageValidator(commitMessage, argv.p);
+const argv = minimist(process.argv.slice(2))
+const gitCommitMessageFilePath = argv.g;
+const validationPattern = argv.p;
+const commitMessage = readFile(gitCommitMessageFilePath, 'utf8')
+
+commitMessageValidator(commitMessage, validationPattern);

@@ -1,4 +1,0 @@
-{
-    'branchname': '^develop|^dev|^development|^(feature|bugfix|hotfix)/issue-\\d+',
-    'commitmsg': '^issue-\\d+'
-}

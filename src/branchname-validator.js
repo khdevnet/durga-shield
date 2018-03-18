@@ -5,7 +5,7 @@ const getConf = require('./config-loader');
 
 
 module.exports = function () {
-  const pattern = getConf(process.cwd()).pattern;
+  const pattern = getConf(process.cwd()).branchName;
   const branchName = getCurrentBranchName();
 
   if (!branchName.match(pattern)) {

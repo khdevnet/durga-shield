@@ -1,18 +1,33 @@
 {
-  "name": "shiva-shield",
+  "name": "shivas",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lint your git branch names and commit messages",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/khdevnet/shiva-shield.git"
+    "url": "git+https://github.com/khdevnet/shivas.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Anton Shcherbyna",
+    "email": "khdevnet@gmail.com",
+    "url": "https://github.com/khdevnet"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "keywords": [
+    "lint",
+    "git",
+    "commit",
+    "branchname",
+    "message",
+    "validation"
+  ],
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/khdevnet/shiva-shield/issues"
+    "url": "https://github.com/khdevnet/shivas/issues"
   },
-  "homepage": "https://github.com/khdevnet/shiva-shield#readme",
+  "homepage": "https://github.com/khdevnet/shivas#readme",
   "husky": {
     "hooks": {
       "commit-msg": "node ./cli/commitmsg.js",

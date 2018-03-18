@@ -3,8 +3,9 @@ const readFile = require('fs').readFileSync;
 
 const getConf = require('./config-loader');
 
-module.exports = function (gitCommitMessageFilePath) {
-    const pattern = getConf(process.cwd()).pattern;
+module.exports = function () {
+    const pattern = getConf(process.cwd()).commitmsg;
+    const gitCommitMessageFilePath = process.env.GIT_PARAMS;
     if (!gitCommitMessageFilePath) {
         throw new Error('Please specify commit message file path: -g /.git/COMMIT_EDITMSG');
     }

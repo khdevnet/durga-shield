@@ -2,17 +2,15 @@ const cosmiconfig = require('cosmiconfig');
 
 module.exports = function (dir) {
     const { config = {} } =
-        cosmiconfig('shiva-shield', {
+        cosmiconfig('shivas', {
             rcExtensions: true,
             sync: true
         }).load(dir) || {}
 
     const defaults = {
-        skipCI: true
+        branchname: "^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+",
+        commitmsg: "^[A-Za-z]+-\\d+"
     }
-
-    console.log('config');
-    console.log(config);
-
+ 
     return { ...defaults, ...config }
 }

@@ -40,6 +40,20 @@ Error:
 
 ```sh
 $ npm install shivas --save-dev
+$ npm install husky@next --save-dev
+```
+
+Update packages.json
+```
+{
+...
+  "husky": {
+    "hooks": {
+      "commit-msg": "node ./node_modules/shivas/cli/commitmsg.js",
+      "pre-push": "node ./node_modules/shivas/cli/branchname.js"
+    }
+  }
+}
 ```
 
 - Use [husky](http://npm.im/husky) to setup `pre-push` and `pre-commit` git hooks. Requires `git 1.8.2+`
@@ -77,7 +91,6 @@ commitmsg: ""
 #### prefixes
 
 `git-flow` branch prefixes allowed. 
-
 
 #### disallowed
 

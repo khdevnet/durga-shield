@@ -56,7 +56,7 @@ Update packages.json
 }
 ```
 
-- Use [husky](http://npm.im/husky) to setup `pre-push` and `pre-commit` git hooks. Requires `git 1.8.2+`
+- Use [husky](http://npm.im/husky) to setup `pre-push` and `commit-msg` git hooks. Requires `git 1.8.2+`
 
 
 ## Usage

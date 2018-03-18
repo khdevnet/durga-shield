@@ -1,7 +1,7 @@
 # Shiva shield
 > git-flow standarts validator
 
-![](shiva.gif|width=100)
+![](shiva.gif){:height="25%" width="25%"}
 
 Provides a binary that can be used as a `git-hook` to validate branch names and commit messages according to `git-flow` prior to pushing upstream. 
 

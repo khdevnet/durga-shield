@@ -6,7 +6,9 @@ const getConf = require('./config-loader');
 
 module.exports = function () {
   const pattern = getConf(process.cwd()).branchName;
+  console.log(pattern);
   const branchName = getCurrentBranchName();
+  console.log(branchName);
 
   if (!branchName.match(pattern)) {
     throw new Error(`${os.EOL} Branch name is not allowed by pattern ${pattern}.${os.EOL} Branch name: ${branchName}`);

@@ -19,7 +19,7 @@ Error:
 
 Validate commit message:
 ```sh
-$ git commit -m"Add readme"
+$ git commit -m "Add readme"
 Output:
 Error:
  Commit message is not allowed by pattern '^[A-Za-z]+-\d+'.
@@ -56,7 +56,7 @@ Update packages.json
 }
 ```
 
-- Use [husky](http://npm.im/husky) to setup `pre-push` and `commit-msg` git hooks. Requires `git 1.8.2+`
+- Use [husky](http://npm.im/husky) to setup `pre-push` and `commit-msg` git hooks.
 
 
 ## Usage

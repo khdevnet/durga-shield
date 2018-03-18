@@ -2,7 +2,7 @@ const cosmiconfig = require('cosmiconfig');
 
 module.exports = function (dir) {
     const { config = {} } =
-        cosmiconfig('shiva', {
+        cosmiconfig('shiva-shield', {
             rcExtensions: true,
             sync: true
         }).load(dir) || {}

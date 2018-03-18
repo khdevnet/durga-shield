@@ -28,14 +28,7 @@
     "url": "https://github.com/khdevnet/shivas/issues"
   },
   "homepage": "https://github.com/khdevnet/shivas#readme",
-  "husky": {
-    "hooks": {
-      "commit-msg": "node ./cli/commitmsg.js",
-      "pre-push": "node ./cli/branchname.js"
-    }
-  },
-  "devDependencies": {
-    "cosmiconfig": "^4.0.0",
-    "husky": "^0.15.0-rc.10"
+  "dependencies": {
+    "cosmiconfig": "^4.0.0"
   }
 }

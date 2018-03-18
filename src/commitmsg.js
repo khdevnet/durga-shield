@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const os = require('os')
 const readFile = require('fs').readFileSync;
 

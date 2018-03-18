@@ -70,8 +70,8 @@ Define options in husky hook `package.json` file (values display below are the d
 ...
   "husky": {
     "hooks": {
-      "commit-msg": "node ./node_modules/shivas/commitmsg.js '^[A-Za-z]+-\\d+'",
-      "pre-push": "node ./node_modules/shivas/branchname.js '^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+'"
+      "commit-msg": "shivas-msg '^[A-Za-z]+-\\d+'",
+      "pre-push": "shivas-bn '^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+'"
     }
   }
 }
@@ -84,8 +84,8 @@ Skip validation commit messages and branches:
 ...
   "husky": {
     "hooks": {
-      "commit-msg": "node ./node_modules/shivas/commitmsg.js skip",
-      "pre-push": "node ./node_modules/shivas/branchname.js skip"
+      "commit-msg": "shivas-msg skip",
+      "pre-push": "shivas-bn skip"
     }
   }
 }

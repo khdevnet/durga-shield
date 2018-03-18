@@ -95,14 +95,7 @@ commitmsg: ""
 #### disallowed
 
 Prevent pushing to certain branches, must be the entire branch name, including prefixes.
-
-#### seperator
-
-Character used to seperate the `prefix` and branch `name`. Defaults to `/`, as Sourcetree converts branch names that use `/` into folders.
-
-#### banned
-
-Ban pushing to branches with a certain `name`. Checks both complete branch name, and the name of the branch with the prefix omitted.
+Prevent commit to certain branches, must be the entire commit message, including prefixes and task number.
 
 ## License
 

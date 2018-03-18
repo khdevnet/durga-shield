@@ -49,8 +49,8 @@ Update packages.json
 ...
   "husky": {
     "hooks": {
-      "commit-msg": "node ./node_modules/shivas/commitmsg.js",
-      "pre-push": "node ./node_modules/shivas/branchname.js"
+      "commit-msg": "shivas-msg",
+      "pre-push": "shivas-bn"
     }
   }
 }

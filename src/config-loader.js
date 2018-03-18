@@ -11,5 +11,8 @@ module.exports = function (dir) {
         skipCI: true
     }
 
+    console.log('config');
+    console.log(config);
+
     return { ...defaults, ...config }
 }

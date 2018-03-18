@@ -1,2 +1,0 @@
-branchname: "^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+"
-commitmsg: "^[A-Za-z]+-\\d+"

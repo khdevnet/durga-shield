@@ -1,28 +1,26 @@
 {
-  "name": "durga-shield",
+  "name": "shiva-shield",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/khdevnet/durga-shield.git"
+    "url": "git+https://github.com/khdevnet/shiva-shield.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/khdevnet/durga-shield/issues"
+    "url": "https://github.com/khdevnet/shiva-shield/issues"
   },
-  "homepage": "https://github.com/khdevnet/durga-shield#readme",
+  "homepage": "https://github.com/khdevnet/shiva-shield#readme",
   "husky": {
     "hooks": {
-      "commitmsg": "node ./cli/commitmsg.js -g ${GIT_PARAMS} -p '^issue-\\d+'",
-      "pre-push": "node ./cli/branchname.js -p '^develop|^dev|^development|^(feature|bugfix)\/issue-\\d+'"
+      "commit-msg": "node ./cli/commitmsg.js",
+      "pre-push": "node ./cli/branchname.js"
     }
   },
-  "dependencies": {
-    "minimist": "^1.2.0"
-  },
   "devDependencies": {
+    "cosmiconfig": "^4.0.0",
     "husky": "^0.15.0-rc.10"
   }
 }

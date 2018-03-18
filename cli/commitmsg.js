@@ -5,5 +5,5 @@ const commitMessageValidator = require('../src/commit-message-validator');
 const argv = minimist(process.argv.slice(2))
 const gitCommitMessageFilePath = argv.g;
 const validationPattern = argv.p;
-
+console.log(argv);
 commitMessageValidator(gitCommitMessageFilePath, validationPattern);

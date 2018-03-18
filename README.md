@@ -29,9 +29,9 @@ Error:
 
 ## Features
 
-- Validate branch name according to default `git-flow` format.
+- Validate branch name according to default `git-flow` format. <br>
   pattern: [^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+].
-- Validate commit message according to default `git-flow` format.
+- Validate commit message according to default `git-flow` format. <br>
   pattern: [^[A-Za-z]+-\\d+].
 - Prevent pushes to certain branches such as `master` or `staging`.
 - Completely customizable, for Regex validation.

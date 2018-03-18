@@ -2,11 +2,27 @@
 
 Provides a binary that can be used as a `git-hook` to validate branch names and commit messages according to `git-flow` prior to pushing upstream. 
 
+Validate branch name:
 ```sh
-$ (features/banned-regex-support) careful
-
-CAREFUL! Branch prefix "features" is not allowed.
+$ git rev-parse --abbrev-ref HEAD
+Output: features/dev-reg
+  
+$ git push
+Output:
+Error:
+ Branch name is not allowed by pattern ^(develop|dev|realese)|^(feature|bugfix|hotfix)/[A-Za-z]+-\d+.
+ Branch name: features/dev-reg
 ```
+
+Validate commit message:
+```sh
+$ git commit -m"Add readme"
+Output:
+Error:
+ Commit message is not allowed by pattern '^[A-Za-z]+-\d+'.
+ Message: Add readme
+```
+
 
 ## Features
 
@@ -33,8 +49,8 @@ Define options in your `package.json` file (values displayed below are the defau
 ```javascript
 {
   "shivas": {
-        branchname: "^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+", // if you clear this value validation will skip
-        commitmsg: "^[A-Za-z]+-\\d+" // if you clear this value validation will skip
+        branchname: "^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+",
+        commitmsg: "^[A-Za-z]+-\\d+"
     }
 }
 ```
@@ -42,8 +58,15 @@ Define options in your `package.json` file (values displayed below are the defau
 Define options in `.shivasrc` file (values displayed below are the default values):
 
 ```yml
-branchname: "^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+" # if you clear this value validation will skip
-commitmsg: "^[A-Za-z]+-\\d+" # if you clear this value validation will skip
+branchname: "^(develop|dev|realese)|^(feature|bugfix|hotfix)\/[A-Za-z]+-\\d+" 
+commitmsg: "^[A-Za-z]+-\\d+"
+```
+
+Skip validation commit messages and branches in `.shivasrc` file:
+
+```yml
+branchname: "" 
+commitmsg: ""
 ```
 
 #### prefixes

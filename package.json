@@ -1,6 +1,6 @@
 {
   "name": "shivas",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Lint your git branch names and commit messages",
   "main": "index.js",
   "repository": {

@@ -74,15 +74,14 @@ Define options in husky hook `package.json` file (values display below are the d
 }
 ```
 
-Skip validation commit messages and branches:
+Skip commit messages validation:
 
 ```
 {
 ...
   "husky": {
     "hooks": {
-      "commit-msg": "shivas-msg skip",
-      "pre-push": "shivas-bn skip"
+      "pre-push": "shivas-bn"
     }
   }
 }

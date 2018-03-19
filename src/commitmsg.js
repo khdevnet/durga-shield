@@ -9,7 +9,7 @@ validateCommitMessage(process.argv.slice(2));
 function validateCommitMessage(args) {
     const pattern = parsePattern(
         args,
-        '[^[A-Za-z]+-\\d+]'
+        '^[A-Za-z]+-\\d+'
     );
 
     const gitCommitMessageFilePath = process.env.GIT_PARAMS;
